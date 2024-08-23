@@ -56,3 +56,15 @@ The **Loan Interest Calculator Web Application** is a user-friendly tool designe
 - index.html      # Main HTML file that includes the structure of the web application
 - script.js       # JavaScript file containing all the dynamic functionalities and event handlers
 - styles.css      # CSS file for styling and responsive design
+
+## Contributing
+
+Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or support, please reach out to Dipen Aggarwal at dipenaggarwal2750@gmail.com .
