@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </head>
+  <body>
+    <h1>Compound Interest Calculator</h1>
+    <div class="form-section">
+      <label for="borrower_name">Borrower Name:</label>
+      <input
+        type="text"
+        id="borrower_name"
+        placeholder="Enter borrower's name"
+      />
+
+      <label for="start_date">Start Date:</label>
+      <input type="date" id="start_date" />
+
+      <label for="end_date">End Date:</label>
+      <input type="date" id="end_date" />
+
+      <label for="initial_principal">Initial Principal (Rs.):</label>
+      <input type="number" id="initial_principal" step="0.01" />
+
+      <label for="interest_rate">Annual Interest Rate (%):</label>
+      <input type="number" id="interest_rate" step="0.01" />
+
+      <div id="transactions_container"></div>
+
+      <div id="button_container">
+        <button id="add_transaction_btn" class="action-button">
+          Add Transaction
+        </button>
+        <button id="calculate_btn" class="action-button">Calculate</button>
+        <button id="download_pdf_btn" class="action-button">
+          Download as PDF
+        </button>
+      </div>
+    </div>
+
+    <div class="note-section">
+      <p>
+        Note: The balance is calculated based on compounding the interest after
+        an annual period.
+      </p>
+    </div>
+
+    <div id="output_section">
+      <table id="result_table" style="display: none">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Debit (Rs.)</th>
+            <th>Credit (Rs.)</th>
+            <th>Days</th>
+            <th id="interest_rate_heading">Interest @ X%pa (Rs.)</th>
+            <th>Balance (Rs.)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <p id="final_balance" style="font-weight: bold"></p>
+    </div>
+    <div id="output_end_marker"></div>
+    <button id="goToTopBtn" onclick="scrollToTop()" style="display: none">
+      Go to Top
+    </button>
+    <script src="script.js"></script>
+  </body>
+</html>

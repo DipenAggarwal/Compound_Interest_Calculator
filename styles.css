@@ -1,0 +1,366 @@
+/* Global Styles */
+* {
+  user-select: text;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Form Section Styles */
+.form-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.form-section:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+input,
+select {
+  width: calc(100% - 24px);
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #d0d7de;
+  background-color: #f7f9fc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+}
+
+#borrower_name_heading {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Button Styles */
+button {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Ensures buttons are of equal size */
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background-color: #0056b3;
+}
+
+#button_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adds consistent spacing between buttons */
+  margin-top: 20px;
+}
+
+button.action-button {
+  width: calc(
+    33.33% - 10px
+  ); /* Ensures all buttons fit within the container with gaps */
+}
+
+/* Transaction Section Styles */
+.transaction-section {
+  border-left: 4px solid #007bff;
+  padding: 15px;
+  background-color: #f1f4f8;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.transaction-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Delete Icon Styles */
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  /*background-image: url("https://img.icons8.com/ios-filled/50/000000/delete-sign.png"); /* Trash bin icon */
+  background-image: url("https://img.icons8.com/?size=100&id=99961&format=png&color=000000");
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow-x: auto;
+  transition: box-shadow 0.3s ease;
+  table-layout: auto; /* Ensures columns take up space based on their content */
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #d0d7de;
+  font-size: 1.2rem;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  font-weight: 800;
+}
+
+td {
+  color: #495057;
+  background-color: #f0f8ff;
+  text-align: right !important;
+}
+
+/* Ensure the specific columns don't wrap */
+table th:nth-child(1), /* Date column */
+table th:nth-child(2), /* Debit column */
+table th:nth-child(3), /* Credit column */
+table th:nth-child(4), /* Days column */
+table td:nth-child(1),
+table td:nth-child(2),
+table td:nth-child(3),
+table td:nth-child(4) {
+  white-space: nowrap; /* Prevents wrapping */
+  overflow: hidden; /* Ensures content does not overflow */
+  text-overflow: ellipsis; /* Adds ellipsis (...) if content overflows */
+  width: 1%; /* Allows the column to take minimal space, just enough for content */
+}
+
+/* Allow Interest and Balance columns to wrap */
+table th:nth-child(5), /* Interest column */
+table th:nth-child(6), /* Balance column */
+table td:nth-child(5),
+table td:nth-child(6) {
+  white-space: normal; /* Allows wrapping */
+  word-wrap: break-word; /* Forces long content to wrap */
+  overflow-wrap: break-word; /* Breaks long words onto a new line */
+  width: auto; /* Allow these columns to take remaining space */
+  max-width: 1px; /* Forces wrapping to prevent horizontal scroll */
+}
+
+#final_balance {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-top: 30px;
+  font-weight: 700;
+  white-space: normal; /* Ensures text wraps within the container */
+  word-wrap: break-word; /* Forces long words to wrap and not overflow */
+}
+
+#output_section {
+  margin-top: 20px; /* Example adjustment */
+  padding: 10px;
+  overflow: auto; /* Ensures content can scroll if it overflows */
+}
+
+.note-section {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333; /* Adjust the color as per your design */
+  text-align: center;
+}
+
+.note-section p {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+#goToTopBtn {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  background-color: #007bff; /* Match your theme */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease;
+}
+
+#goToTopBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .form-section {
+    width: 80%;
+  }
+
+  .transaction-section {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .form-section {
+    width: 60%;
+  }
+
+  .transaction-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #button_container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button.action-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media print {
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  /* Page break for large tables */
+  .page-break {
+    display: block;
+    page-break-before: always;
+  }
+
+  /* Prevent wrapping for specific columns */
+  table th:nth-child(1), /* Date column */
+  table th:nth-child(2), /* Debit column */
+  table th:nth-child(3), /* Credit column */
+  table th:nth-child(4), /* Days column */
+  table td:nth-child(1),
+  table td:nth-child(2),
+  table td:nth-child(3),
+  table td:nth-child(4) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Allow wrapping for specific columns */
+  table th:nth-child(5), /* Interest column */
+  table th:nth-child(6), /* Balance column */
+  table td:nth-child(5),
+  table td:nth-child(6) {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 768px) {
+  .note-section {
+    font-size: 0.9rem;
+  }
+}
+
+/* Styles for screens with max-width 768px and 600px */
+@media only screen and (max-width: 768px), only screen and (max-width: 600px) {
+  /* Remove wrapping and use default table behavior */
+  table th,
+  #output_table td {
+    white-space: nowrap; /* Prevents wrapping */
+    word-wrap: normal; /* Disable wrapping */
+    overflow-wrap: normal; /* Disable wrapping */
+    width: auto; /* Use default content width */
+  }
+
+  /* Remove specific widths set for the columns */
+  table th:nth-child(1),
+  table th:nth-child(2),
+  table th:nth-child(3),
+  table th:nth-child(4),
+  table td:nth-child(1),
+  table td:nth-child(2),
+  table td:nth-child(3),
+  table td:nth-child(4) {
+    width: auto; /* Reset to auto width */
+  }
+
+  /* Also reset Interest and Balance columns */
+  table th:nth-child(5),
+  table th:nth-child(6),
+  table td:nth-child(5),
+  table td:nth-child(6) {
+    width: auto; /* Reset to auto width */
+    max-width: none; /* Allow full width */
+  }
+}
